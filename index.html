@@ -60,12 +60,12 @@ header.kop{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .kop .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:110px}
 .logo{display:block;background:var(--logo-plaat);border-radius:6px;padding:4px 8px}
 .logo img{height:84px;width:auto}
-nav.hoofd ul{list-style:none;margin:0;padding:0;display:flex;gap:4px}
-nav.hoofd a{display:block;padding:10px 12px;font-weight:600;color:var(--kop);text-decoration:none;border-radius:4px}
+nav.hoofd ul{list-style:none;margin:0;padding:0;display:flex;gap:2px;align-items:center}
+nav.hoofd a{display:block;white-space:nowrap;padding:10px 11px;font-weight:600;color:var(--kop);text-decoration:none;border-radius:4px}
 nav.hoofd a:hover{background:var(--vlak-paars)}
 nav.hoofd a[aria-current="page"]{color:var(--oranje)}
 .menuknop{display:none;background:var(--paars);color:#fff;border:0;font:inherit;font-weight:600;padding:10px 16px;border-radius:4px;cursor:pointer}
-@media (max-width:980px){
+@media (max-width:1180px){
   .menuknop{display:block}
   nav.hoofd{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:5px solid var(--paars);display:none;max-height:calc(100vh - 120px);overflow:auto}
   nav.hoofd.open{display:block}
@@ -204,6 +204,17 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
 @media (max-width:900px){footer .kolommen{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){footer .kolommen{grid-template-columns:1fr}}
 
+.citaat{font-family:"EB Garamond",Georgia,serif;font-size:1.15rem;font-style:italic;color:var(--zacht)}
+.knoppen-rij{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.tijdlijn{list-style:none;padding:0;margin:0;border-left:3px solid var(--oranje)}
+.tijdlijn li{display:grid;grid-template-columns:90px 1fr;gap:18px;padding:0 0 22px 22px;position:relative}
+.tijdlijn li::before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;background:var(--paars);clip-path:polygon(30% 0,100% 0,100% 100%,0 100%,0 30%)}
+.tijdlijn b{font-family:"EB Garamond",Georgia,serif;font-size:1.6rem;color:var(--kop);line-height:1.1}
+.tijdlijn h3{font-size:1.2rem;margin-bottom:.25em}
+.tijdlijn p{margin:0;color:var(--tekst)}
+@media (max-width:560px){.tijdlijn li{grid-template-columns:1fr;gap:2px}}
+.nav-mijn{background:var(--paars);color:#fff !important;margin-left:6px}
+.nav-mijn:hover{background:var(--paars-diep) !important}
 .view[hidden]{display:none}
 @media (prefers-reduced-motion:no-preference){
   .view:not([hidden]){animation:in .35s ease-out}
@@ -218,7 +229,7 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
   <div class="wrap">
     <span class="taal"><button aria-current="true">Nederlands</button> | <a href="https://www.armeensekerk.org/hy" target="_blank" rel="noopener" lang="hy">Հայերեն</a></span>
     <button id="tekstKnop" aria-pressed="false">Tekst groter</button>
-    <a href="#mijn">Mijn Surp Hoki</a>
+    <a href="#lid-worden">Lid worden</a>
   </div>
 </div>
 
@@ -235,6 +246,7 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
         <li><a href="#geschiedenis">Geschiedenis</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#doneren" class="knop oranje klein" style="color:#24140A;margin-left:6px">Doneren</a></li>
+        <li><a href="#mijn" class="knop klein nav-mijn">Mijn Surp Hoki</a></li>
       </ul>
     </nav>
   </div>
@@ -249,8 +261,8 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
     <div class="paneel hoek">
       <div>
         <h1 data-tekst="heroTitel">Welkom in Surp Hoki</h1>
-        <p data-tekst="heroIntro">De Armeens Apostolische kerk van Amsterdam, sinds 1714 aan de Krom Boomssloot. Iedereen is welkom bij de Heilige Liturgie, lid of niet, Armeens sprekend of niet.</p>
-        <p class="citaat">Want waar twee of drie mensen in mijn naam samen zijn, ben Ik in hun midden. (Matteüs 18:20)</p>
+        <p data-tekst="heroIntro">Welkom bij de Armeens Apostolische Kerk Surp Hoki, sinds 1714 aan de Krom Boomssloot in Amsterdam. U bent van harte welkom om op zondag aan te sluiten bij de Heilige Liturgie.</p>
+        <p class="citaat">Want waar twee of drie mensen in mijn naam samen zijn, ben Ik in hun midden. (Mattheüs 18:20, NBV)</p>
       </div>
       <div class="liturgie">
         Heilige Liturgie, elke zondag
@@ -263,12 +275,12 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
   <section class="blok">
     <div class="wrap">
       <h2>Direct regelen</h2>
-      <p class="intro">Een ceremonie aanvragen, lid worden of een gift doen kan volledig online.</p>
+      <p class="intro">Leden vragen een ceremonie aan via Mijn Surp Hoki. Nog geen lid? Meld u aan, daarna kunt u direct aanvragen.</p>
       <div class="regelen">
-        <a href="#diensten"><b>Doop aanvragen</b><span>Voor kinderen en volwassenen</span></a>
-        <a href="#diensten"><b>Kerkelijk huwelijk</b><span>Aanvraag en voorbereiding</span></a>
-        <a href="#diensten"><b>Uitvaart</b><span>Direct contact met de priester</span></a>
-        <a href="#lid-worden"><b>Lid worden</b><span>Aanmelden en contributie regelen</span></a>
+        <a href="#diensten"><b>Doop</b><span>Uitleg, kosten en aanvragen</span></a>
+        <a href="#diensten"><b>Kerkelijk huwelijk</b><span>Uitleg en aanvragen</span></a>
+        <a href="#diensten"><b>Uitvaart</b><span>Bel de priester: 06 12 79 68 22</span></a>
+        <a href="#mijn"><b>Mijn Surp Hoki</b><span>Inloggen voor leden</span></a>
         <a href="#doneren"><b>Doneren</b><span>Eenmalig of maandelijks</span></a>
       </div>
     </div>
@@ -282,7 +294,7 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
         <p style="margin-top:18px"><a href="#agenda">Volledige agenda</a></p>
       </div>
       <div>
-        <h2>Khorhurd van deze maand</h2>
+        <h2>Nieuwste Khorhurd</h2>
         <div id="khorhurdKort"></div>
       </div>
     </div>
@@ -297,7 +309,7 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
             <li><a href="#diensten">Doop, huwelijk en uitvaart</a></li>
             <li><a href="#diensten">Ziekenhuis- en huisbezoek</a></li>
             <li><a href="#lid-worden">Lid worden</a></li>
-            <li><a href="#stichting">Stichting</a></li>
+            <li><a href="#contact">Zusterparochiën</a></li>
             <li><a href="#mijn">Mijn Surp Hoki</a></li>
           </ul>
         </div>
@@ -316,7 +328,7 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
             <li><a href="#agenda">Kerkkalender en feestdagen</a></li>
             <li><a href="#khorhurd">Khorhurd</a></li>
             <li><a href="#ajo">AJO Amsterdam</a></li>
-            <li><a href="#ajo">Zondagsschool en dansschool</a></li>
+            <li><a href="#agenda">Vrouwencomité en zondagsschool</a></li>
             <li><a href="#faq">Veelgestelde vragen</a></li>
           </ul>
         </div>
@@ -328,9 +340,9 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
     <div class="wrap">
       <h2>Nieuws</h2>
       <div class="lijst">
-        <article class="item"><div class="meta">Oktober 2026</div><h3>Groeiende betrokkenheid bij Surp Hoki</h3><p>Steeds meer bezoekers vinden de weg naar onze kerk en activiteiten.</p><a href="#nieuws">Lees verder</a></article>
-        <article class="item"><div class="meta">Oktober 2026</div><h3>Aanwezigheid tijdens de zondagse Heilige Liturgie</h3><p>Met dankbaarheid zien wij de kerk op zondag steeds voller worden.</p><a href="#nieuws">Lees verder</a></article>
-        <article class="item"><div class="meta">Volg ons</div><h3>Ook op Facebook en Instagram</h3><p>Nieuwsberichten van de website verschijnen automatisch op onze sociale media.</p><a href="https://www.facebook.com/Armeens-Apostolische-Kerk-SURP-HOKI-Amsterdam-240372692698949" target="_blank" rel="noopener">Naar Facebook</a></article>
+        <article class="item"><div class="meta">Oktober 2026</div><h3>Samen in geloof: groeiende opkomst bij de zondagse liturgie</h3><a href="https://www.armeensekerk.org/nl/samen-geloof-groeiende-opkomst-bij-de-zondagse-liturgie" target="_blank" rel="noopener">Lees het bericht</a></article>
+        <article class="item"><div class="meta">Oktober 2026</div><h3>Groeiende betrokkenheid bij Surp Hoki</h3><a href="https://www.armeensekerk.org/nl/groeiende-betrokkenheid-bij-surp-hoki" target="_blank" rel="noopener">Lees het bericht</a></article>
+        <article class="item"><div class="meta">Volg ons</div><h3>Ook op Facebook</h3><p>Nieuwsberichten van de website verschijnen ook op onze sociale media.</p><a href="https://www.facebook.com/Armeens-Apostolische-Kerk-SURP-HOKI-Amsterdam-240372692698949" target="_blank" rel="noopener">Naar Facebook</a></article>
       </div>
     </div>
   </section>
@@ -355,38 +367,50 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
 
 <!-- DIENSTEN -->
 <div class="view" data-view="diensten" hidden>
-  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Kerkelijke diensten</h1><p>Lees wat een ceremonie inhoudt en vraag hem direct aan. Betalen kan na bevestiging van de datum.</p></div></div>
+  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Kerkelijke diensten</h1><p>Lees wat elke ceremonie inhoudt. Leden vragen een ceremonie aan via Mijn Surp Hoki.</p></div></div>
   <section class="blok">
     <div class="wrap twee">
       <div>
-        <details class="acc" open><summary>Doopceremonie</summary><div><p>Kinderen en volwassenen kunnen in Surp Hoki gedoopt worden. Na uw aanvraag plant de priester een voorbereidend gesprek.</p></div></details>
-        <details class="acc"><summary>Kerkelijk huwelijk</summary><div><p>Voor een kerkelijk huwelijk plannen we vooraf een gesprek met het bruidspaar. Geef in de aanvraag een voorkeursdatum op en een reservedatum.</p></div></details>
-        <details class="acc"><summary>Uitvaartceremonie</summary><div><p>Bij een overlijden kunt u de parochie direct bellen op <a href="tel:+31206201107">020 620 11 07</a>. Het formulier is bedoeld voor het vastleggen van de gegevens en wensen.</p></div></details>
-        <details class="acc"><summary>Ziekenhuisbezoek en huisbezoek</summary><div><p>De priester bezoekt parochianen thuis of in het ziekenhuis. Vermeld adres, afdeling en de beste tijd voor een bezoek.</p></div></details>
-        <details class="acc"><summary>Zusterparochies</summary><div><p>Woont u buiten Amsterdam? Wij verwijzen u graag door naar een Armeense parochie bij u in de buurt.</p></div></details>
+        <details class="acc" open><summary>Doopceremonie</summary><div>
+          <p>Dopen is het opnieuw geboren worden van de geest. Wanneer iemand is gedoopt, wordt hij of zij onderdeel van de kerk en het Lichaam van Christus. Wie niet is gedoopt, kan de andere sacramenten zoals de Heilige Communie niet ontvangen.</p>
+          <p>Tijdens de doopceremonie is er altijd een peetvader aanwezig. Na de ceremonie is het zijn taak om de gedoopte te begeleiden in het geloof. Na het dopen wordt de persoon gezalfd met de heilige olie Meron, op negen plaatsen van het lichaam: het voorhoofd, de ogen, de oren, de neusgaten, de lippen, de handen, de borst, de rug en de voeten.</p>
+          <p class="citaat">Ga dus op weg en maak alle volken tot mijn leerlingen, door hen te dopen in de naam van de Vader en de Zoon en de Heilige Geest. (Mattheüs 28:19, NBV)</p>
+          <h3>Kosten</h3>
+          <div class="tabel"><table><tbody>
+            <tr><td>Leden van Surp Hoki</td><td style="white-space:nowrap">€ 150</td></tr>
+            <tr><td>Niet-leden</td><td style="white-space:nowrap">€ 250</td></tr>
+            <tr><td>Reiskosten bij een doop buiten de kerk</td><td style="white-space:nowrap">€ 50</td></tr>
+            <tr><td>Reiskosten met diaken</td><td style="white-space:nowrap">€ 100</td></tr>
+          </tbody></table></div>
+          <p style="margin-top:12px">Het geld komt ten goede aan de kerk. Wie zijn dank wil uiten, kan aan het einde van de ceremonie een gift in een envelop geven aan de priester en de diaken.</p>
+        </div></details>
+        <details class="acc"><summary>Kerkelijk huwelijk</summary><div>
+          <p class="citaat">Daarom zal een man zich losmaken van zijn vader en moeder en zich hechten aan zijn vrouw, en die twee zullen één lichaam zijn. Wat God heeft verbonden, mag een mens niet scheiden. (Mattheüs 19:5-6, NBV)</p>
+          <p>Het christendom plaatst het gezin hoog. Door het huwelijk als sacrament te vestigen, kreeg het gezin een heilige plaats. Christus bekrachtigde het sacrament van het huwelijk tijdens de bruiloft in Kana (Johannes 2:1-2). Door het sacrament en de zegen van God worden man en vrouw één lichaam en vormen zij samen een nieuw gezin.</p>
+          <p>Na uw aanvraag plant de priester een gesprek met het bruidspaar ter voorbereiding.</p>
+        </div></details>
+        <details class="acc"><summary>Uitvaartceremonie</summary><div>
+          <p>De uitvaartceremonie van uw geliefde bestaat uit drie delen: de thuisdienst, de kerkdienst en de dienst bij de begraafplaats.</p>
+          <p>Bij een overlijden kunt u de priester direct bellen op <a href="tel:+31612796822">06 12 79 68 22</a>.</p>
+        </div></details>
+        <details class="acc"><summary>Ziekenhuisbezoek</summary><div>
+          <p>U kunt de priester, Ter Taron Tadevosyan, uitnodigen voor een ziekenhuisbezoek. De priester bidt dan voor de zieke en geeft de Heilige Communie. Die wordt gegeven voor genezing, waarbij Christus wordt meegenomen in het proces van herstel. Mocht de persoon komen te overlijden, dan heeft hij of zij de laatste Communie kunnen ontvangen, ter voorbereiding op het leven na de dood.</p>
+          <p>Maak een afspraak via <a href="tel:+31612796822">06 12 79 68 22</a>.</p>
+        </div></details>
+        <details class="acc"><summary>Huisbezoek</summary><div>
+          <p>U kunt de priester ook uitnodigen voor een huisbezoek. Twee keer per jaar, rond Kerst en Pasen, zegent de priester huizen. Wanneer hij in uw stad is, verschilt per keer. Heeft u een nieuw huis gekocht, dan kunt u dat ook laten zegenen. En u kunt de priester uitnodigen om over het christelijk leven te praten of als u vragen heeft.</p>
+          <p>Bel Ter Taron Tadevosyan op <a href="tel:+31612796822">06 12 79 68 22</a>.</p>
+        </div></details>
       </div>
-      <div class="hoek" style="background:var(--vlak);padding:36px 30px">
-        <h2>Aanvraag indienen</h2>
-        <form data-form="aanvraag">
-          <label>Soort dienst
-            <select name="dienst" required>
-              <option>Doopceremonie</option><option>Kerkelijk huwelijk</option><option>Uitvaartceremonie</option><option>Ziekenhuisbezoek</option><option>Huisbezoek</option>
-            </select>
-          </label>
-          <div class="rij">
-            <label>Naam aanvrager<input name="naam" required autocomplete="name"></label>
-            <label>Telefoon<input name="tel" type="tel" required autocomplete="tel"></label>
-          </div>
-          <label>E-mailadres<input name="email" type="email" required autocomplete="email"></label>
-          <div class="rij">
-            <label>Voorkeursdatum<input name="datum" type="date"></label>
-            <label>Reservedatum<input name="reserve" type="date"></label>
-          </div>
-          <label>Toelichting<textarea name="bericht" placeholder="Namen, wensen, vragen"></textarea></label>
-          <label class="check"><input type="checkbox" required> Ik ga akkoord met de verwerking van mijn gegevens volgens de privacyverklaring.</label>
-          <div><button class="knop">Aanvraag versturen</button></div>
-          <div class="melding" hidden>Aanvraag verstuurd. U ontvangt een bevestiging per e-mail en kunt de status volgen in Mijn Surp Hoki.</div>
-        </form>
+      <div>
+        <div class="hoek" style="background:var(--vlak);padding:36px 30px;border-bottom:4px solid var(--paars)">
+          <h2>Een ceremonie aanvragen</h2>
+          <p>Een doop, kerkelijk huwelijk of uitvaart aanvragen kan alleen als lid van Surp Hoki. Log in op Mijn Surp Hoki en kies de ceremonie. Daar volgt u ook de status van uw aanvraag en ziet u wat er nog betaald moet worden.</p>
+          <div class="knoppen-rij"><a class="knop" href="#mijn">Inloggen op Mijn Surp Hoki</a> <a class="knop licht" href="#lid-worden">Nog geen lid? Word lid</a></div>
+        </div>
+        <div class="melding" style="margin-top:22px">
+          <strong>Bij een overlijden</strong><br>Wacht niet op het portaal. Bel de priester direct op <a href="tel:+31612796822">06 12 79 68 22</a>.
+        </div>
       </div>
     </div>
   </section>
@@ -396,36 +420,60 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
 <div class="view" data-view="agenda" hidden>
   <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Agenda</h1><p>Diensten, feestdagen en activiteiten. Zet een afspraak met één klik in de agenda van uw telefoon.</p></div></div>
   <section class="blok"><div class="wrap"><ul class="agenda" id="agendaLang"></ul></div></section>
+  <section class="blok vlak">
+    <div class="wrap">
+      <h2>Activiteiten in en rond de kerk</h2>
+      <div class="lijst">
+        <article class="item"><h3>Vrouwencomité</h3><p>Het vrouwencomité organiseert elk jaar activiteiten op en rond de feestdagen van de Armeens Apostolische Kerk. Zo blijft de kerkgemeenschap hecht en worden nieuwe kerkgangers op zondag hartelijk ontvangen.</p></article>
+        <article class="item"><h3>Zondagsschool</h3><p>Informatie over de zondagsschool vindt u op de website van Stichting Sint Grigor Narekatsi.</p><a href="https://www.narekatsi.nl" target="_blank" rel="noopener">Naar narekatsi.nl</a></article>
+        <article class="item"><h3>AJO Amsterdam</h3><p>De jongerenorganisatie van de kerk organiseert bijeenkomsten en evenementen voor Armeense jongeren.</p><a href="#ajo">Meer over AJO</a></article>
+      </div>
+    </div>
+  </section>
 </div>
 
 <!-- KHORHURD -->
 <div class="view" data-view="khorhurd" hidden>
-  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Khorhurd</h1><p>Elke maand een overdenking van de priester. Lees hem online of download hem om te bewaren.</p></div></div>
-  <section class="blok"><div class="wrap"><div class="lijst" id="khorhurdLijst"></div></div></section>
+  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Khorhurd</h1><p>De maandelijkse uitgave van Surp Hoki, samengesteld door AJO Amsterdam.</p></div></div>
+  <section class="blok">
+    <div class="wrap twee">
+      <div>
+        <p>Khorhurd informeert gelovigen over de Heilige Liturgie, de kerkgeschiedenis en de symbolen van de kerk. Het doel is de algemene kennis te verbreden en de preken toegankelijk te maken voor alle kerkgangers. Het redactieteam is opgericht door gelovigen, voor gelovigen.</p>
+        <p>De papieren uitgave van de maand ligt in de kerk. Online leest u hem via <a href="https://www.onlinetouch.nl/khorhurd" target="_blank" rel="noopener">onlinetouch.nl/khorhurd</a>.</p>
+      </div>
+      <div class="hoek" style="background:var(--vlak);padding:30px 28px">
+        <h3>Het volledige archief</h3>
+        <p>Alle uitgaven sinds 2017 staan per jaar en maand op de website van AJO Amsterdam.</p>
+        <a class="knop" href="https://www.ajo-amsterdam.nl" target="_blank" rel="noopener">Naar het archief</a>
+      </div>
+    </div>
+  </section>
+  <section class="blok vlakp"><div class="wrap"><h2>Recente uitgaven</h2><div class="lijst" id="khorhurdLijst"></div></div></section>
 </div>
 
 <!-- AJO -->
 <div class="view" data-view="ajo" hidden>
-  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>AJO Amsterdam</h1><p>De jongeren van Surp Hoki. Samen activiteiten, uitjes en vrijwilligerswerk rond de kerk.</p></div></div>
+  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>AJO Amsterdam</h1><p>Een organisatie voor jongeren, door jongeren.</p></div></div>
   <section class="blok">
     <div class="wrap twee">
       <div>
         <h2>Over AJO</h2>
-        <p data-tekst="ajoTekst">AJO brengt Armeense jongeren in Amsterdam en omgeving samen. We organiseren activiteiten, helpen bij evenementen van de kerk en houden de band met onze cultuur levend.</p>
-        <h3>Meedoen</h3>
-        <p>Stuur ons een bericht en we nemen je mee naar de volgende activiteit.</p>
-        <a class="knop" href="#contact">Neem contact op</a>
+        <p data-tekst="ajoTekst">AJO Amsterdam is ontstaan uit de behoefte om Armeense jongeren met elkaar in contact te brengen en bij de Armeens Apostolische Kerk en de Armeense gemeenschap te betrekken. Het hoofddoel is het voortbestaan van de kerk te waarborgen, met de relatie tussen jongeren, religie en cultuur als middelpunt.</p>
+        <p>De Armeense gemeenschap kent jongeren met veel verschillende achtergronden. Met bijeenkomsten en evenementen vergroot AJO het gevoel van saamhorigheid, en leren jongeren meer over de Armeense kerk, cultuur, kunst, muziek, geschiedenis en literatuur.</p>
+        <p>AJO stelt ook elke maand de Khorhurd samen.</p>
+        <div class="knoppen-rij"><a class="knop" href="https://www.ajo-amsterdam.nl" target="_blank" rel="noopener">Naar ajo-amsterdam.nl</a> <a class="knop licht" href="https://instagram.com/ajo_amsterdam" target="_blank" rel="noopener">Volg @ajo_amsterdam</a></div>
       </div>
-      <div>
-        <h2>Zondagsschool en dansschool</h2>
-        <p>Op zondag krijgen kinderen les in de Armeense taal, geschiedenis en het geloof. De dansschool leert kinderen en jongeren traditionele Armeense dansen.</p>
+      <div class="hoek" style="background:var(--vlak);padding:30px 28px">
+        <h3>Doe mee</h3>
+        <p>AJO nodigt alle jongeren uit om deel te nemen aan evenementen, andere jongeren uit de gemeenschap te leren kennen en hun bijdrage te leveren aan de gemeenschap van vandaag en morgen.</p>
+        <a class="knop" href="#contact">Neem contact op</a>
       </div>
     </div>
   </section>
   <section class="blok vlakp">
     <div class="wrap">
       <h2>Laatste posts op Instagram</h2>
-      <p class="intro">Deze strook wordt automatisch gevuld met de nieuwste posts van het AJO-account.</p>
+      <p class="intro">Deze strook wordt automatisch gevuld met de nieuwste posts van @ajo_amsterdam.</p>
       <div class="instagram"><div>Instagram-post</div><div>Instagram-post</div><div>Instagram-post</div><div>Instagram-post</div></div>
     </div>
   </section>
@@ -433,20 +481,35 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
 
 <!-- GESCHIEDENIS -->
 <div class="view" data-view="geschiedenis" hidden>
-  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Geschiedenis</h1><p>Armeense kooplieden wonen al sinds de zeventiende eeuw in Amsterdam.</p></div></div>
+  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Geschiedenis</h1><p>Armeense kooplieden wonen al sinds het begin van de zeventiende eeuw in Amsterdam.</p></div></div>
   <section class="blok">
+    <div class="wrap">
+      <h2>Tijdlijn</h2>
+      <ul class="tijdlijn">
+        <li><b>1600</b><div><h3>Eerste Armeniërs in Amsterdam</h3><p>Jonge Armeense kooplieden vestigen zich in de Lastage, een wijk bij de haven. Tussen 1660 en 1714 houden zij godsdienstige bijeenkomsten in de huizen van Armeense priesters.</p></div></li>
+        <li><b>1666</b><div><h3>De eerste gedrukte Armeense bijbel</h3><p>In Amsterdam begint het zetten van de eerste Armeense bijbel. Op 13 oktober 1668 rolt het eerste exemplaar van de pers.</p></div></li>
+        <li><b>1714</b><div><h3>Geboorte van Surp Hoki</h3><p>Op 30 januari keuren de Amsterdamse burgemeesters het verzoek goed van Armeense kooplieden om een pakhuis te kopen en er een kerk van te maken. Op 28 mei wordt het pakhuis aan de Krom Boomssloot gekocht.</p></div></li>
+        <li><b>1749</b><div><h3>Gevelsteen en marmeren vestibule</h3><p>Priester Johannes di Minas laat de gevelsteen boven de ingang aanbrengen. Kerkmeester Arachiel di Paulo bekostigt de marmeren bekleding en de plaquette boven de deur van de kerkzaal.</p></div></li>
+        <li><b>1874</b><div><h3>Het gebouw wordt een school</h3><p>Na het uitsterven van de Armeense gemeenschap wordt het gebouw geveild. Het wordt een rooms-katholieke lagere school, die er tot 1984 blijft.</p></div></li>
+        <li><b>1985</b><div><h3>Terug in Armeense handen</h3><p>Op 14 december koopt de Stichting Armeens Apostolische kerk het gebouw. Op 26 november 1989 wijdt aartsbisschop Kudde Naccachian de kerk opnieuw in.</p></div></li>
+        <li><b>2010</b><div><h3>Monument op De Nieuwe Ooster</h3><p>Op de begraafplaats De Nieuwe Ooster komt een khachkar ter nagedachtenis aan de slachtoffers van de Armeense genocide.</p></div></li>
+        <li><b>2012</b><div><h3>Vader Taron Tadevosyan</h3><p>Zeereerwaarde Vader Taron Tadevosyan komt met zijn vrouw naar Nederland om de kerk geestelijk te leiden.</p></div></li>
+        <li><b>2014</b><div><h3>Inwijding na de renovatie</h3><p>Na een ingrijpende renovatie, waarbij de kerkruimte naar de tuinkant werd uitgebreid, wijdt bisschop Datev Hagopian het gebouw opnieuw in.</p></div></li>
+        <li><b>2018</b><div><h3>Khachkar in de muur van de kerk</h3><p>In samenwerking met Stichting Sint Grigor Narekatsi komt een tweede monument in de zijmuur van het kerkgebouw.</p></div></li>
+      </ul>
+    </div>
+  </section>
+  <section class="blok vlak">
     <div class="wrap twee">
       <div>
-        <h2>Het kerkgebouw</h2>
-        <p>Op 30 januari 1714 keurde het college van Amsterdamse burgemeesters het verzoek goed van een groep Armeense kooplieden om een gebouw te kopen en daar hun kerk in te richten. Sindsdien is Surp Hoki, de Heilige Geest, het middelpunt van de Armeense gemeenschap in Amsterdam.</p>
         <h2>De eerste gedrukte Armeense bijbel</h2>
-        <p>In 1666 werd in Amsterdam de eerste volledige Armeense bijbel gedrukt. De stad was in die tijd een centrum voor Armeense boekdrukkunst.</p>
+        <p>In 1656 stuurde de Katholikos in Etsjmiadzin Mateos Tsaretsi naar Europa om een drukkerij op te zetten. In Venetië en Rome vond hij geen geschikte drukker. In Amsterdam, waar de boekdrukkunst op hoog niveau stond, kocht hij drie sets Armeense drukletters. Voskan Jerevantsi nam de drukkerij later over en begon in 1666 met het zetten van de bijbel, van ongeveer 1470 pagina's. Een exemplaar bevindt zich in de Universiteitsbibliotheek van Amsterdam.</p>
       </div>
       <div>
         <h2>Herdenkingsmonumenten</h2>
-        <p>Elk jaar op 24 april herdenken we de slachtoffers van de Armeense genocide bij het monument.</p>
+        <p>Amsterdam heeft twee monumenten voor de Armeense genocide van 1915. Bij het monument op De Nieuwe Ooster wordt na elke Armeense feestdag gebeden voor de Heilige Martelaren. Bij het monument aan de zijkant van Surp Hoki worden zij elk jaar op 24 april herdacht.</p>
         <h2>Etsjmiadzin</h2>
-        <p>Het Moederheiligdom van Etsjmiadzin in Armenië is de zetel van de Katholikos van alle Armeniërs en het centrum van de Armeens Apostolische Kerk.</p>
+        <p>De moederkathedraal van de Armeens Apostolische Kerk is Etsjmiadzin. Volgens de overlevering verscheen Christus in een visioen aan Sint Gregorius de Verlichter en wees de plek aan waar de kathedraal moest komen. De naam betekent: de eniggeborene daalde neer. De geboorte van de moederkathedraal wordt elk jaar 14 dagen na Pinksteren gevierd.</p>
       </div>
     </div>
   </section>
@@ -463,7 +526,7 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
 
 <!-- LID WORDEN -->
 <div class="view" data-view="lid-worden" hidden>
-  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Lid worden</h1><p>Als lid steunt u de parochie en ontvangt u uitnodigingen voor de ledenvergadering.</p></div></div>
+  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Lid worden</h1><p>Als lid steunt u de parochie en krijgt u toegang tot Mijn Surp Hoki, waar u een doop, kerkelijk huwelijk of uitvaart aanvraagt. Leden betalen voor een doop € 150 in plaats van € 250.</p></div></div>
   <section class="blok"><div class="wrap">
     <span class="demo">Voorbeeld: betalingen worden in deze versie niet echt verwerkt.</span>
     <form data-form="lid">
@@ -520,6 +583,11 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
       <div><button class="knop oranje">Doneren met iDEAL</button></div>
       <div class="melding" hidden>Dank u wel. In de echte website gaat u nu door naar de betaalpagina.</div>
     </form>
+    <div class="hoek" style="background:var(--vlak);padding:28px 26px;margin-top:36px;max-width:640px">
+      <h3>Liever zelf overmaken?</h3>
+      <p style="margin:0">Armeens Apostolische Kerk Amsterdam<br>IBAN NL44 INGB 0005 5965 16<br>Krom Boomssloot 22, 1011 GW Amsterdam</p>
+    </div>
+
   </div></section>
 </div>
 
@@ -528,11 +596,12 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
   <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Veelgestelde vragen</h1><p>Staat uw vraag er niet bij? Stel hem via het contactformulier.</p></div></div>
   <section class="blok"><div class="wrap" style="max-width:820px">
     <details class="acc"><summary>Hoe laat begint de dienst op zondag?</summary><div><p>De Heilige Liturgie begint elke zondag om 10.00 uur. U bent welkom zonder aanmelding.</p></div></details>
-    <details class="acc"><summary>Moet ik Armeens spreken om de dienst bij te wonen?</summary><div><p>Nee. De liturgie is in het Armeens, maar iedereen is welkom.</p></div></details>
-    <details class="acc"><summary>Hoe vraag ik een doop, huwelijk of uitvaart aan?</summary><div><p>Via de pagina <a href="#diensten">Kerkelijke diensten</a>. Na uw aanvraag neemt de parochie contact met u op om de datum vast te leggen.</p></div></details>
-    <details class="acc"><summary>Hoe word ik lid?</summary><div><p>Vul het formulier op <a href="#lid-worden">Lid worden</a> in en kies of u de contributie per maand of per jaar betaalt.</p></div></details>
-    <details class="acc"><summary>Kan ik een kopie van een doop- of huwelijksakte krijgen?</summary><div><p>Ja. Log in op <a href="#mijn">Mijn Surp Hoki</a> om digitale kopieën te bekijken, of vraag ze aan via het contactformulier.</p></div></details>
-    <details class="acc"><summary>Kan ik de kerk bezoeken buiten de diensten?</summary><div><p>Neem vooraf contact op, dan spreken we een moment af.</p></div></details>
+    <details class="acc"><summary>Hoe vraag ik een doop, huwelijk of uitvaart aan?</summary><div><p>Aanvragen kan alleen als lid. Log in op <a href="#mijn">Mijn Surp Hoki</a> en kies de ceremonie. Bent u nog geen lid, meld u dan eerst aan via <a href="#lid-worden">Lid worden</a>. Bij een overlijden belt u de priester direct op 06 12 79 68 22.</p></div></details>
+    <details class="acc"><summary>Wat kost een doop?</summary><div><p>Voor leden € 150, voor niet-leden € 250. Bij een doop buiten de kerk komen er € 50 reiskosten bij, of € 100 als er ook een diaken aanwezig is.</p></div></details>
+    <details class="acc"><summary>Hoe word ik lid?</summary><div><p>Vul het formulier op <a href="#lid-worden">Lid worden</a> in. Daarna krijgt u toegang tot Mijn Surp Hoki.</p></div></details>
+    <details class="acc"><summary>Kan de priester bij mij thuis of in het ziekenhuis langskomen?</summary><div><p>Ja. Bel Ter Taron Tadevosyan op 06 12 79 68 22 voor een afspraak. Zie ook <a href="#diensten">Kerkelijke diensten</a>.</p></div></details>
+    <details class="acc"><summary>Kan ik een kopie van een doop- of huwelijksakte krijgen?</summary><div><p>Ja. Leden vinden digitale kopieën straks in Mijn Surp Hoki. Tot die tijd kunt u een kopie aanvragen via het contactformulier.</p></div></details>
+    <details class="acc"><summary>Woont u ver van Amsterdam?</summary><div><p>Er zijn zusterparochiën in onder meer Almelo, Arnhem, Assen, Dordrecht, Eindhoven, Heerhugowaard en Maastricht. De adressen staan op de <a href="#contact">contactpagina</a>.</p></div></details>
   </div></section>
 </div>
 
@@ -543,11 +612,11 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
     <div class="wrap twee">
       <div>
         <h2>Over ons</h2>
-        <p>Surp Hoki is de parochie van de Armeens Apostolische Kerk in Amsterdam. De parochie wordt gedragen door de priester, het kerkbestuur en vrijwilligers uit de gemeenschap.</p>
+        <p>Surp Hoki, de Heilige Geest, is sinds 1714 de Armeens Apostolische kerk van Amsterdam. Sinds 2012 leidt Zeereerwaarde Vader Taron Tadevosyan de parochie.</p>
         <h3>Adres</h3>
         <p>Krom Boomssloot 22<br>1011 GW Amsterdam</p>
         <h3>Telefoon</h3>
-        <p><a href="tel:+31206201107">020 620 11 07</a></p>
+        <p>Kerk <a href="tel:+31206201107">020 620 11 07</a><br>Priester Ter Taron Tadevosyan <a href="tel:+31612796822">06 12 79 68 22</a></p>
         <h3>Sociale media</h3>
         <p><a href="https://www.facebook.com/Armeens-Apostolische-Kerk-SURP-HOKI-Amsterdam-240372692698949" target="_blank" rel="noopener">Facebook</a></p>
       </div>
@@ -568,53 +637,57 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
       </div>
     </div>
   </section>
+  <section class="blok vlak">
+    <div class="wrap">
+      <h2>Zusterparochiën in Nederland</h2>
+      <div class="tabel"><table>
+        <thead><tr><th>Kerk</th><th>Adres</th><th>Telefoon</th></tr></thead>
+        <tbody>
+          <tr><td>Surp Krikor Lusavoritch</td><td>Vriezeveenseweg 174, 7602 PV Almelo</td><td>0546 86 10 26</td></tr>
+          <tr><td>Opstandingskerk</td><td>Rosendaalseweg 505, 6824 KL Arnhem</td><td>06 40 45 10 44</td></tr>
+          <tr><td>St. Athanasius Koptische kerk</td><td>Talmastraat 111, 9406 KM Assen</td><td>06 40 79 36 69</td></tr>
+          <tr><td>Kerk van de verrezen Christus</td><td>Nolensweg 8, 3317 LE Dordrecht</td><td>06 43 35 43 34</td></tr>
+          <tr><td>Sint-Lambertuskerk</td><td>Hoogstraat 297, 5654 NA Eindhoven</td><td>06 14 55 76 46</td></tr>
+          <tr><td>Sint-Dionysiuskerk</td><td>Middenweg 248, 1710 GH Heerhugowaard</td><td>06 24 25 51 69</td></tr>
+          <tr><td>Surp Karapet</td><td>Potterieplein 50, 6216 VB Maastricht</td><td>06 23 11 83 96</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
 </div>
 
 <!-- NIEUWS -->
 <div class="view" data-view="nieuws" hidden>
   <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Nieuws</h1><p>Berichten uit de parochie. Elk bericht wordt ook gedeeld op Facebook en Instagram.</p></div></div>
-  <section class="blok"><div class="wrap" style="max-width:820px">
-    <article style="margin-bottom:40px"><div class="item" style="border:0;padding:0;background:none"><div class="meta">Oktober 2026</div><h2>Groeiende betrokkenheid bij Surp Hoki</h2><p>Steeds meer bezoekers vinden de weg naar onze kerk en activiteiten.</p></div></article>
-    <article><div class="item" style="border:0;padding:0;background:none"><div class="meta">Oktober 2026</div><h2>Aanwezigheid tijdens de zondagse Heilige Liturgie</h2><p>Met dankbaarheid zien wij de kerk op zondag steeds voller worden.</p></div></article>
-  </div></section>
+  <section class="blok"><div class="wrap"><div class="lijst">
+    <article class="item"><div class="meta">Oktober 2026</div><h3>Samen in geloof: groeiende opkomst bij de zondagse liturgie</h3><a href="https://www.armeensekerk.org/nl/samen-geloof-groeiende-opkomst-bij-de-zondagse-liturgie" target="_blank" rel="noopener">Lees het bericht</a></article>
+    <article class="item"><div class="meta">Oktober 2026</div><h3>Groeiende betrokkenheid bij Surp Hoki</h3><a href="https://www.armeensekerk.org/nl/groeiende-betrokkenheid-bij-surp-hoki" target="_blank" rel="noopener">Lees het bericht</a></article>
+  </div></div></section>
 </div>
 
 <!-- MIJN SURP HOKI -->
 <div class="view" data-view="mijn" hidden>
-  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Mijn Surp Hoki</h1><p>Uw aanvragen, betalingen en documenten op één plek.</p></div></div>
-  <section class="blok"><div class="wrap">
+  <div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home">Home</a></div><h1>Mijn Surp Hoki</h1><p>Het portaal voor leden. Hier vraagt u een doop, kerkelijk huwelijk, uitvaart of bezoek van de priester aan.</p></div></div>
+  <section class="blok"><div class="wrap twee">
     <div id="inlogBlok">
-      <span class="demo">Voorbeeld: elk e-mailadres werkt om de omgeving te bekijken.</span>
+      <h2>Inloggen</h2>
       <form id="inlogForm" style="max-width:420px">
         <label>E-mailadres<input type="email" required autocomplete="email"></label>
         <div><button class="knop">Stuur mij een inloglink</button></div>
-        <p style="font-size:.9rem;color:var(--zacht)">U logt in met een link in uw mail en een code op uw telefoon. Zo heeft u geen wachtwoord nodig.</p>
+        <p style="font-size:.9rem;color:var(--zacht)">U logt in met een link in uw mail. Een wachtwoord is niet nodig.</p>
       </form>
+      <div id="portaal" class="melding" hidden><strong>Het portaal is in ontwikkeling.</strong><br>In de definitieve website komt u na het inloggen hier in uw eigen omgeving.</div>
     </div>
-    <div id="portaal" hidden>
-      <div class="tabs" role="tablist">
-        <button role="tab" aria-selected="true" data-tab="p-aanvragen">Mijn aanvragen</button>
-        <button role="tab" aria-selected="false" data-tab="p-betalingen">Betalingen</button>
-        <button role="tab" aria-selected="false" data-tab="p-documenten">Documenten</button>
-        <button role="tab" aria-selected="false" data-tab="p-vraag">Stel een vraag</button>
-      </div>
-      <div class="tabpaneel" id="p-aanvragen">
-        <div class="tabel"><table><thead><tr><th>Dienst</th><th>Datum</th><th>Status</th></tr></thead>
-        <tbody><tr><td>Doopceremonie</td><td>14 december 2026</td><td><span class="status">In behandeling</span></td></tr></tbody></table></div>
-      </div>
-      <div class="tabpaneel" id="p-betalingen" hidden>
-        <div class="tabel"><table><thead><tr><th>Omschrijving</th><th>Bedrag</th><th>Status</th><th></th></tr></thead>
-        <tbody><tr><td>Contributie 2026</td><td>Volgt uit beheer</td><td><span class="status ok">Betaald</span></td><td></td></tr>
-        <tr><td>Doopceremonie</td><td>Volgt uit beheer</td><td><span class="status">Open</span></td><td><button class="knop klein">Betalen</button></td></tr></tbody></table></div>
-      </div>
-      <div class="tabpaneel" id="p-documenten" hidden>
-        <p>Digitale kopieën van uw certificaten. De originelen bewaart de parochie in het archief.</p>
-        <div class="tabel"><table><thead><tr><th>Document</th><th>Datum</th><th></th></tr></thead>
-        <tbody><tr><td>Doopcertificaat</td><td>Uit het archief</td><td><button class="knop klein licht">Bekijken</button></td></tr></tbody></table></div>
-      </div>
-      <div class="tabpaneel" id="p-vraag" hidden>
-        <form data-form="vraag"><label>Uw vraag aan de parochie<textarea required></textarea></label><div><button class="knop">Vraag versturen</button></div><div class="melding" hidden>Vraag verstuurd. U vindt het antwoord hier en in uw mail.</div></form>
-      </div>
+    <div class="hoek" style="background:var(--vlak);padding:32px 28px">
+      <h3>Wat u straks in het portaal doet</h3>
+      <div class="tabel"><table><tbody>
+        <tr><td>Aanvragen</td><td>Doop, kerkelijk huwelijk, uitvaart, ziekenhuis- of huisbezoek</td></tr>
+        <tr><td>Status volgen</td><td>Zien of uw aanvraag is bevestigd en op welke datum</td></tr>
+        <tr><td>Betalen</td><td>Kosten van ceremonies en contributie</td></tr>
+        <tr><td>Documenten</td><td>Digitale kopieën van uw certificaten</td></tr>
+        <tr><td>Vragen</td><td>Een vraag stellen aan de parochie</td></tr>
+      </tbody></table></div>
+      <p style="margin-top:16px">Nog geen lid? Alleen leden hebben toegang tot het portaal. <a href="#lid-worden">Word lid</a>.</p>
     </div>
   </div></section>
 </div>
@@ -673,15 +746,15 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
     <div class="kolommen">
       <div>
         <h3>Surp Hoki</h3>
-        <p>Armeens Apostolische kerk<br>Krom Boomssloot 22<br>1011 GW Amsterdam<br><a href="tel:+31206201107">020 620 11 07</a></p>
+        <p>Armeens Apostolische kerk<br>Krom Boomssloot 22<br>1011 GW Amsterdam<br><a href="tel:+31206201107">020 620 11 07</a><br>Heilige Liturgie elke zondag 10.00 uur</p>
       </div>
       <div>
         <h3>Parochie</h3>
-        <ul><li><a href="#diensten">Kerkelijke diensten</a></li><li><a href="#lid-worden">Lid worden</a></li><li><a href="#doneren">Doneren</a></li><li><a href="#stichting">Stichting</a></li></ul>
+        <ul><li><a href="#diensten">Kerkelijke diensten</a></li><li><a href="#mijn">Mijn Surp Hoki</a></li><li><a href="#lid-worden">Lid worden</a></li><li><a href="#doneren">Doneren</a></li></ul>
       </div>
       <div>
         <h3>Activiteiten</h3>
-        <ul><li><a href="#agenda">Agenda</a></li><li><a href="#khorhurd">Khorhurd</a></li><li><a href="#ajo">AJO Amsterdam</a></li><li><a href="#nieuws">Nieuws</a></li></ul>
+        <ul><li><a href="#agenda">Agenda</a></li><li><a href="#khorhurd">Khorhurd</a></li><li><a href="#ajo">AJO Amsterdam</a></li><li><a href="#geschiedenis">Geschiedenis</a></li><li><a href="#nieuws">Nieuws</a></li></ul>
       </div>
       <div>
         <h3>Hulp</h3>
@@ -705,16 +778,23 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
   data.khorhurd = data.khorhurd || [];
 
   var MAANDEN = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
-  var standaardAgenda = [
-    {titel:"Heilige Liturgie", datum:"2026-11-01", tijd:"10:00", omschrijving:"Elke zondag in Surp Hoki"},
-    {titel:"Heilige Liturgie", datum:"2026-11-08", tijd:"10:00", omschrijving:"Elke zondag in Surp Hoki"},
-    {titel:"Heilige Liturgie", datum:"2026-11-15", tijd:"10:00", omschrijving:"Elke zondag in Surp Hoki"},
+  function zondagen(n){
+    var uit = [], d = new Date(); d.setHours(12,0,0,0);
+    d.setDate(d.getDate() + ((7 - d.getDay()) % 7));
+    for (var i = 0; i < n; i++) { var x = new Date(d); x.setDate(d.getDate() + 7*i);
+      uit.push({titel:"Heilige Liturgie", datum:x.getFullYear() + "-" + String(x.getMonth()+1).padStart(2,"0") + "-" + String(x.getDate()).padStart(2,"0"), tijd:"10:00", omschrijving:"Elke zondag in Surp Hoki"}); }
+    return uit;
+  }
+  var standaardAgenda = zondagen(4).concat([
     {titel:"Armeense Kerstmis, Surp Dzenount", datum:"2027-01-06", tijd:"10:00", omschrijving:"Geboorte en Doop van Christus"},
-    {titel:"Herdenking Armeense genocide", datum:"2027-04-24", tijd:"", omschrijving:"Bij het monument"}
-  ];
+    {titel:"Herdenking Armeense genocide", datum:"2027-04-24", tijd:"", omschrijving:"Bij het monument aan de kerk"}
+  ]);
   var standaardKhorhurd = [
-    {maand:"November 2026", titel:"Voorbeeldtitel van de Khorhurd", tekst:"Hier staat de overdenking van deze maand. Beheerders plaatsen een nieuwe Khorhurd via de beheerpagina."}
+    {maand:"Maart 2026", titel:"Khorhurd maart 2026", tekst:"De uitgave van maart, online te lezen.", link:"https://onlinetouch.nl/khorhurd/khorhurd-maart-2026"},
+    {maand:"Februari 2026", titel:"Khorhurd februari 2026", tekst:"De uitgave van februari, online te lezen.", link:"https://onlinetouch.nl/khorhurd/khorhurd-februari-2026"},
+    {maand:"Januari 2026", titel:"Khorhurd januari 2026", tekst:"De uitgave van januari, online te lezen.", link:"https://onlinetouch.nl/khorhurd/khorhurd-januari-2026"}
   ];
+
 
   /* teksten die beheerders kunnen aanpassen */
   var bewerkbaar = [
@@ -821,10 +901,11 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
       a.querySelector(".meta").textContent = k.maand;
       a.querySelector("h3").textContent = k.titel;
       a.querySelector("p").textContent = k.tekst;
+      if (k.link) { var ln = document.createElement("a"); ln.href = k.link; ln.target = "_blank"; ln.rel = "noopener"; ln.textContent = "Lees online"; a.appendChild(ln); }
       l.appendChild(a);
     });
     var kort = document.getElementById("khorhurdKort");
-    kort.innerHTML = '<div class="hoek" style="padding:30px 28px;border-bottom:4px solid var(--oranje)"><div class="meta" style="color:var(--oranje);font-weight:600;font-size:.875rem"></div><h3></h3><p></p><a href="#khorhurd">Alle overdenkingen</a></div>';
+    kort.innerHTML = '<div class="hoek" style="padding:30px 28px;border-bottom:4px solid var(--oranje)"><div class="meta" style="color:var(--oranje);font-weight:600;font-size:.875rem"></div><h3></h3><p></p><a href="#khorhurd">Alle uitgaven</a></div>';
     kort.querySelector(".meta").textContent = alle[0].maand;
     kort.querySelector("h3").textContent = alle[0].titel;
     kort.querySelector("p").textContent = alle[0].tekst.length > 180 ? alle[0].tekst.slice(0,180) + "..." : alle[0].tekst;
@@ -881,7 +962,7 @@ footer .onder{border-top:1px solid #4A3670;margin-top:40px;padding-top:18px;font
   /* portaal */
   document.getElementById("inlogForm").addEventListener("submit", function(e){
     e.preventDefault();
-    document.getElementById("inlogBlok").hidden = true;
+    e.target.hidden = true;
     document.getElementById("portaal").hidden = false;
   });
 
