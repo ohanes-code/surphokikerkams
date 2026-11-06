@@ -363,6 +363,73 @@ nav.hoofd > ul > li > a{font-size:.95rem;padding:9px 9px}
 nav.hoofd ul.dropdown{align-items:stretch}
 nav.hoofd ul.dropdown a{text-align:left}
 @media (max-width:640px){.hoek[style*="1.4fr auto"]{grid-template-columns:1fr !important;padding:32px 24px !important}}
+/* ===== Huisstijl volgens kleurenguide ===== */
+:root{
+  --paars:#442478; --paars-diep:#2c1755; --oranje:#d28238; --oranje-licht:#dc9353;
+  --bg:#f0ecf8; --vlak:#ffffff; --vlak-paars:#e7e0f3; --kaart:#ffffff; --veld:#ffffff;
+  --tekst:#2c1755; --zacht:#5a4a78; --kop:#442478; --link:#442478; --lijn:#ddd5ea;
+}
+body{background:var(--bg);color:var(--tekst)}
+body,input,select,textarea,button{font-family:"Figtree","Noto Sans Armenian",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3,.tijdlijn b,.datum b,.liturgie strong,.regelen b,.tegels b,.feiten b,.jaarpaneel .groot,.woord button,.feestkaarten button b,.akte h2{font-family:"EB Garamond","Noto Serif Armenian",Georgia,"Times New Roman",serif !important;font-weight:600}
+h1,h2,h3{color:var(--kop)}
+h1{font-size:clamp(2.1rem,4.6vw,3.3rem)}
+h2{font-size:clamp(1.7rem,3.2vw,2.35rem)}
+h3{font-size:1.4rem}
+.citaat{font-family:"EB Garamond","Noto Serif Armenian",Georgia,serif !important;font-style:italic;font-size:1.2rem}
+header.kop{background:#fff;border-bottom:5px solid var(--paars)}
+.util{background:#fff}
+section.vlak{background:#fff}
+section.vlakp{background:var(--vlak-paars)}
+.paginakop{background:#fff;border-bottom:1px solid var(--lijn)}
+/* afgeronde vormen in plaats van schuine hoeken */
+.hoek,.liturgie,.meedoen,.jaarbalk button{clip-path:none !important;border-radius:16px}
+.hero .paneel{border-radius:20px;box-shadow:0 10px 30px rgba(44,23,85,.08)}
+.hero .paneel::after{display:none}
+.liturgie{background:var(--paars);border-radius:14px}
+.tijdlijn li::before{clip-path:none;border-radius:50%}
+.kaartje,.item,.paneel,.feiten div,.tegels a,.tegels button,.regelen a,.feestkaarten button,.jaarpaneel,.reisdetail,blockquote,.leegstaat{border-radius:14px}
+.tegels a,.tegels button,.feestkaarten button,.regelen a{border:1px solid var(--lijn);border-top:5px solid var(--oranje)}
+.feiten div{border-left:5px solid var(--oranje)}
+.datum{border-radius:10px}
+input,select,textarea,fieldset,.keuzes label{border-radius:10px}
+.melding{border-radius:0 10px 10px 0}
+/* knoppen: oranje met witte tekst, donker blok in paars */
+.knop{background:var(--oranje);border-color:var(--oranje);color:#fff !important;border-radius:10px;text-transform:uppercase;letter-spacing:.04em;font-size:.92rem}
+.knop:hover{background:#b96c26;border-color:#b96c26}
+.knop.oranje{background:var(--oranje);border-color:var(--oranje);color:#fff !important}
+.knop.oranje:hover{background:#b96c26;border-color:#b96c26}
+.knop.licht{background:transparent;color:var(--paars) !important;border-color:var(--paars)}
+.knop.licht:hover{background:var(--paars);color:#fff !important}
+.knop.klein{font-size:.82rem}
+.nav-mijn,.nav-mijn:hover{background:var(--paars) !important;border-color:var(--paars) !important;color:#fff !important;text-transform:none;letter-spacing:0}
+nav.hoofd a.knop{text-transform:none;letter-spacing:0;font-size:.92rem}
+.aftellen{background:var(--paars);border-radius:8px}
+.jaarbalk button[aria-pressed="true"],.woord button[aria-pressed="true"],.reis button[aria-pressed="true"] i,.jaren button[aria-pressed="true"]{background:var(--paars);border-color:var(--paars)}
+.tabs button[aria-selected="true"]{border-bottom-color:var(--oranje);color:var(--kop)}
+nav.hoofd a[aria-current="page"]{color:var(--oranje)}
+nav.hoofd ul.dropdown{border-top-color:var(--oranje);border-radius:0 0 12px 12px}
+footer{background:var(--paars-diep)}
+.insta{border-radius:14px;background:linear-gradient(135deg,#442478,#d28238)}
+.status.ok{background:#e3f2e8}
+th{background:var(--vlak-paars);color:var(--kop)}
+
+#zuster{scroll-margin-top:130px}
+/* formulieren behouden de crèmekleurige achtergrond */
+:root{--formvlak:#FBF5EE}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--formvlak:#1E1729}}
+:root[data-theme="dark"]{--formvlak:#1E1729}
+.meedoen,.hoek:has(form),.kaartje:has(form){background:var(--formvlak) !important}
+.kaartje:has(#inlogForm){background:var(--kaart) !important}
+nav.hoofd ul.dropdown{background:var(--kaart) !important}
+nav.hoofd ul.dropdown a:hover{background:var(--vlak-paars)}
+@media (max-width:1180px){nav.hoofd{background:var(--kaart) !important}}
+.insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.insta-grid a,.insta-grid div{aspect-ratio:1;border-radius:10px;overflow:hidden;display:block;background:linear-gradient(135deg,#442478,#d28238)}
+.insta-grid img{width:100%;height:100%;object-fit:cover;display:block}
+.insta-grid div{display:grid;place-items:center;opacity:.55}
+.insta-leeg{grid-column:1/-1;font-size:.9rem;color:var(--zacht);margin:4px 0 0}
+
 </style>
 </head>
 <body>
@@ -613,12 +680,9 @@ nav.hoofd ul.dropdown a{text-align:left}
 <div><div class="t-nl"><p>AJO Amsterdam is ontstaan uit de behoefte om Armeense jongeren met elkaar in contact te brengen en bij de Armeens Apostolische Kerk en de Armeense gemeenschap te betrekken. Het hoofddoel is het voortbestaan van de kerk te waarborgen, met de relatie tussen jongeren, religie en cultuur als middelpunt.</p></div><div class="t-hy" lang="hy"><p>AJO Ամստերդամը ստեղծվել է հայ երիտասարդներին միմյանց հետ կապելու և նրանց Հայ Առաքելական Եկեղեցուն ու համայնքին ներգրավելու նպատակով։</p></div>
 <h2><span class="t-nl">Wat AJO doet</span><span class="t-hy" lang="hy">Ինչով է զբաղվում AJO-ն</span></h2><ul class="tijdlijn" style="border-left-color:var(--paars)"><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Bijeenkomsten en evenementen die jongeren met verschillende achtergronden samenbrengen</span><span class="t-hy" lang="hy">Հանդիպումներ և միջոցառումներ տարբեր ծագմամբ երիտասարդների համար</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Jongeren informeren over de Armeense kerk, cultuur, kunst, muziek, geschiedenis en literatuur</span><span class="t-hy" lang="hy">Տեղեկություններ հայկական եկեղեցու, մշակույթի, արվեստի և պատմության մասին</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Elke maand de Khorhurd samenstellen</span><span class="t-hy" lang="hy">Ամեն ամիս «Խորհուրդ»-ի կազմում</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Aandacht voor actuele onderwerpen, zoals de Armeense genocide en de Armeniërs in Nederland</span><span class="t-hy" lang="hy">Արդի թեմաներ, ինչպես Ցեղասպանությունը և հայերը Նիդեռլանդներում</span></p></div></li></ul><a class="insta" href="https://instagram.com/ajo_amsterdam" target="_blank" rel="noopener" style="margin-top:26px"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg><span><b>@ajo_amsterdam</b><span class="t-nl">Volg AJO op Instagram voor foto's en aankondigingen</span><span class="t-hy" lang="hy">Հետևեք AJO-ին Instagram-ում</span></span></a>
 <div class="knoppen-rij"><a class="knop" href="https://www.ajo-amsterdam.nl" target="_blank" rel="noopener"><span class="t-nl">Naar ajo-amsterdam.nl</span><span class="t-hy" lang="hy">Այցելել ajo-amsterdam.nl</span></a><a class="knop licht" href="#khorhurd">Khorhurd</a></div></div>
-<div><div class="meedoen"><h3><span class="t-nl">Միացիր AJO-ին</span><span class="t-hy" lang="hy">Doe mee met AJO</span></h3><p><span class="t-nl">Alle jongeren zijn welkom bij de evenementen. Laat je gegevens achter, dan nemen we contact op.</span><span class="t-hy" lang="hy">Բոլոր երիտասարդները բարի են գալու։ Թողեք Ձեր տվյալները։</span></p>
-<form data-form="contact"><input type="hidden" name="onderwerp" value="AJO, meedoen">
-<div class="rij"><label><span class="t-nl">Naam</span><span class="t-hy" lang="hy">Անուն</span><input name="naam" required autocomplete="name"></label><label><span class="t-nl">E-mailadres</span><span class="t-hy" lang="hy">Էլ. փոստ</span><input name="email" type="email" required autocomplete="email"></label></div>
-<label><span class="t-nl">Bericht</span><span class="t-hy" lang="hy">Հաղորդագրություն</span><textarea name="bericht" required style="min-height:90px"></textarea></label>
-<div><button class="knop"><span class="t-nl">Versturen</span><span class="t-hy" lang="hy">Ուղարկել</span></button></div>
-<div class="melding" hidden><span class="t-nl">Bedankt. Uw bericht is ontvangen en we nemen contact met u op.</span><span class="t-hy" lang="hy">Շնորհակալություն։ Ձեր հաղորդագրությունը ստացվել է, մենք կկապվենք Ձեզ հետ։</span></div></form></div></div>
+<div><div class="kaartje"><h3><span class="t-nl">Laatste posts op Instagram</span><span class="t-hy" lang="hy">Վերջին գրառումները Instagram-ում</span></h3>
+<div class="insta-grid" id="instaFeed" aria-live="polite"></div>
+<div class="knoppen-rij" style="margin-top:14px"><a class="knop" href="https://instagram.com/ajo_amsterdam" target="_blank" rel="noopener"><span class="t-nl">Volg @ajo_amsterdam</span><span class="t-hy" lang="hy">Հետևել @ajo_amsterdam</span></a></div></div></div>
 </div></section>
 </div>
 
@@ -628,12 +692,7 @@ nav.hoofd ul.dropdown a{text-align:left}
 <section class="blok"><div class="wrap twee">
 <div><div class="t-nl"><p>Het vrouwencomité organiseert elk jaar verschillende activiteiten op en rond de feestdagen van de Armeens Apostolische Kerk. Zo zorgt het comité ervoor dat de kerkgemeenschap hecht is en blijft.</p></div><div class="t-hy" lang="hy"><p>Կանանց հանձնախումբը ամեն տարի կազմակերպում է միջոցառումներ Հայ Առաքելական Եկեղեցու տոների շուրջ՝ համայնքը համախմբված պահելու համար։</p></div>
 <h2><span class="t-nl">Activiteiten</span><span class="t-hy" lang="hy">Միջոցառումներ</span></h2><ul class="tijdlijn" style="border-left-color:var(--paars)"><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Activiteiten op en rond de grote feestdagen</span><span class="t-hy" lang="hy">Միջոցառումներ տաղավար տոների շուրջ</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Nieuwe kerkgangers op zondag welkom heten</span><span class="t-hy" lang="hy">Կիրակի օրերին նոր եկողների ընդունելություն</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Bijdragen aan een hechte kerkgemeenschap</span><span class="t-hy" lang="hy">Համայնքի համախմբում</span></p></div></li></ul></div>
-<div><div class="meedoen"><h3><span class="t-nl">Meedoen of meer weten?</span><span class="t-hy" lang="hy">Միանա՞լ կամ ավելին իմանալ</span></h3><p><span class="t-nl">Laat een bericht achter voor het vrouwencomité.</span><span class="t-hy" lang="hy">Թողեք հաղորդագրություն հանձնախմբի համար։</span></p>
-<form data-form="contact"><input type="hidden" name="onderwerp" value="Vrouwencomité, meedoen">
-<div class="rij"><label><span class="t-nl">Naam</span><span class="t-hy" lang="hy">Անուն</span><input name="naam" required autocomplete="name"></label><label><span class="t-nl">E-mailadres</span><span class="t-hy" lang="hy">Էլ. փոստ</span><input name="email" type="email" required autocomplete="email"></label></div>
-<label><span class="t-nl">Bericht</span><span class="t-hy" lang="hy">Հաղորդագրություն</span><textarea name="bericht" required style="min-height:90px"></textarea></label>
-<div><button class="knop"><span class="t-nl">Versturen</span><span class="t-hy" lang="hy">Ուղարկել</span></button></div>
-<div class="melding" hidden><span class="t-nl">Bedankt. Uw bericht is ontvangen en we nemen contact met u op.</span><span class="t-hy" lang="hy">Շնորհակալություն։ Ձեր հաղորդագրությունը ստացվել է, մենք կկապվենք Ձեզ հետ։</span></div></form></div></div>
+<div><div class="hoek" style="background:var(--kaart);padding:30px 28px;border-bottom:4px solid var(--paars)"><h3><span class="t-nl">Meer weten of meedoen?</span><span class="t-hy" lang="hy">Ավելին իմանա՞լ կամ միանա՞լ</span></h3><p><span class="t-nl">Neem voor vragen over het vrouwencomité contact op met de kerk. Uw bericht komt dan bij de juiste persoon terecht.</span><span class="t-hy" lang="hy">Կանանց հանձնախմբի վերաբերյալ հարցերի համար կապվեք եկեղեցու հետ։</span></p><a class="knop" href="#contact"><span class="t-nl">Naar contact</span><span class="t-hy" lang="hy">Կապ</span></a></div></div>
 </div></section>
 </div>
 
@@ -643,12 +702,7 @@ nav.hoofd ul.dropdown a{text-align:left}
 <section class="blok"><div class="wrap twee">
 <div><div class="t-nl"><p>De zondagsschool wordt georganiseerd in samenwerking met Stichting Sint Grigor Narekatsi. Informatie over lestijden, groepen en aanmelden vindt u op de website van de stichting.</p></div><div class="t-hy" lang="hy"><p>Կիրակնօրյա դպրոցը կազմակերպվում է Սուրբ Գրիգոր Նարեկացի հիմնադրամի հետ։ Դասաժամերի և գրանցման մասին տեղեկությունը կգտնեք հիմնադրամի կայքում։</p></div>
 <h2><span class="t-nl">Meer informatie</span><span class="t-hy" lang="hy">Լրացուցիչ տեղեկություն</span></h2><ul class="tijdlijn" style="border-left-color:var(--paars)"><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Lestijden en groepen staan op narekatsi.nl</span><span class="t-hy" lang="hy">Դասաժամերը և խմբերը՝ narekatsi.nl կայքում</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Aanmelden gaat via de stichting</span><span class="t-hy" lang="hy">Գրանցումը՝ հիմնադրամի միջոցով</span></p></div></li></ul><div class="knoppen-rij" style="margin-top:18px"><a class="knop" href="https://www.narekatsi.nl" target="_blank" rel="noopener"><span class="t-nl">Naar narekatsi.nl</span><span class="t-hy" lang="hy">Այցելել narekatsi.nl</span></a></div></div>
-<div><div class="meedoen"><h3><span class="t-nl">Vraag over de zondagsschool</span><span class="t-hy" lang="hy">Հարց կիրակնօրյա դպրոցի մասին</span></h3><p><span class="t-nl">Stuur ons een bericht, dan zorgen we dat het bij de juiste persoon komt.</span><span class="t-hy" lang="hy">Ուղարկեք հաղորդագրություն, և այն կհասնի ճիշտ մարդուն։</span></p>
-<form data-form="contact"><input type="hidden" name="onderwerp" value="Zondagsschool">
-<div class="rij"><label><span class="t-nl">Naam</span><span class="t-hy" lang="hy">Անուն</span><input name="naam" required autocomplete="name"></label><label><span class="t-nl">E-mailadres</span><span class="t-hy" lang="hy">Էլ. փոստ</span><input name="email" type="email" required autocomplete="email"></label></div>
-<label><span class="t-nl">Bericht</span><span class="t-hy" lang="hy">Հաղորդագրություն</span><textarea name="bericht" required style="min-height:90px"></textarea></label>
-<div><button class="knop"><span class="t-nl">Versturen</span><span class="t-hy" lang="hy">Ուղարկել</span></button></div>
-<div class="melding" hidden><span class="t-nl">Bedankt. Uw bericht is ontvangen en we nemen contact met u op.</span><span class="t-hy" lang="hy">Շնորհակալություն։ Ձեր հաղորդագրությունը ստացվել է, մենք կկապվենք Ձեզ հետ։</span></div></form></div></div>
+<div><div class="hoek" style="background:var(--kaart);padding:30px 28px;border-bottom:4px solid var(--paars)"><h3><span class="t-nl">Lestijden en aanmelden</span><span class="t-hy" lang="hy">Դասաժամեր և գրանցում</span></h3><p><span class="t-nl">Alle informatie over de zondagsschool, de groepen en het aanmelden staat op de website van Stichting Sint Grigor Narekatsi.</span><span class="t-hy" lang="hy">Կիրակնօրյա դպրոցի մասին ամբողջ տեղեկությունը Սուրբ Գրիգոր Նարեկացի հիմնադրամի կայքում է։</span></p><a class="knop" href="https://www.narekatsi.nl" target="_blank" rel="noopener"><span class="t-nl">Naar narekatsi.nl</span><span class="t-hy" lang="hy">Այցելել narekatsi.nl</span></a></div></div>
 </div></section>
 </div>
 
@@ -658,12 +712,7 @@ nav.hoofd ul.dropdown a{text-align:left}
 <section class="blok"><div class="wrap twee">
 <div><div class="t-nl"><p><span data-tekst="bestuurTekst">Het kerkbestuur zorgt samen met de priester voor de parochie, het kerkgebouw en de financiën. Namen en functies van de bestuursleden volgen.</span></p></div><div class="t-hy" lang="hy"><p>Ծխական խորհուրդը քահանայի հետ միասին պատասխանատու է ծխի, եկեղեցու շենքի և ֆինանսների համար։</p></div>
 <h2><span class="t-nl">Taken van het bestuur</span><span class="t-hy" lang="hy">Խորհրդի պարտականությունները</span></h2><ul class="tijdlijn" style="border-left-color:var(--paars)"><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Beheer en onderhoud van het kerkgebouw</span><span class="t-hy" lang="hy">Եկեղեցու շենքի կառավարում և պահպանում</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Financiën, ledenadministratie en giften</span><span class="t-hy" lang="hy">Ֆինանսներ, անդամություն և նվիրատվություններ</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Aansturing van de kerkcommissies</span><span class="t-hy" lang="hy">Հանձնախմբերի համակարգում</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Contact met de gemeente en andere organisaties</span><span class="t-hy" lang="hy">Կապ քաղաքապետարանի և այլ կազմակերպությունների հետ</span></p></div></li></ul></div>
-<div><div class="meedoen"><h3><span class="t-nl">Contact met het bestuur</span><span class="t-hy" lang="hy">Կապ խորհրդի հետ</span></h3><p><span class="t-nl">Heeft u een vraag of voorstel voor het bestuur?</span><span class="t-hy" lang="hy">Հարց կամ առաջարկ ունե՞ք խորհրդի համար։</span></p>
-<form data-form="contact"><input type="hidden" name="onderwerp" value="Kerkbestuur">
-<div class="rij"><label><span class="t-nl">Naam</span><span class="t-hy" lang="hy">Անուն</span><input name="naam" required autocomplete="name"></label><label><span class="t-nl">E-mailadres</span><span class="t-hy" lang="hy">Էլ. փոստ</span><input name="email" type="email" required autocomplete="email"></label></div>
-<label><span class="t-nl">Bericht</span><span class="t-hy" lang="hy">Հաղորդագրություն</span><textarea name="bericht" required style="min-height:90px"></textarea></label>
-<div><button class="knop"><span class="t-nl">Versturen</span><span class="t-hy" lang="hy">Ուղարկել</span></button></div>
-<div class="melding" hidden><span class="t-nl">Bedankt. Uw bericht is ontvangen en we nemen contact met u op.</span><span class="t-hy" lang="hy">Շնորհակալություն։ Ձեր հաղորդագրությունը ստացվել է, մենք կկապվենք Ձեզ հետ։</span></div></form></div></div>
+<div><div class="hoek" style="background:var(--kaart);padding:30px 28px;border-bottom:4px solid var(--paars)"><h3><span class="t-nl">Meer weten of meedoen?</span><span class="t-hy" lang="hy">Ավելին իմանա՞լ կամ միանա՞լ</span></h3><p><span class="t-nl">Neem voor vragen over het kerkbestuur contact op met de kerk. Uw bericht komt dan bij de juiste persoon terecht.</span><span class="t-hy" lang="hy">Ծխական խորհրդի վերաբերյալ հարցերի համար կապվեք եկեղեցու հետ։</span></p><a class="knop" href="#contact"><span class="t-nl">Naar contact</span><span class="t-hy" lang="hy">Կապ</span></a></div></div>
 </div></section>
 </div>
 
@@ -686,12 +735,7 @@ nav.hoofd ul.dropdown a{text-align:left}
 <section class="blok"><div class="wrap twee">
 <div><div class="t-nl"><p>De evenementencommissie organiseert de bijeenkomsten waar de gemeenschap samenkomt, van de viering na een grote feestdag tot de herdenking op 24 april.</p></div><div class="t-hy" lang="hy"><p>Միջոցառումների հանձնախումբը կազմակերպում է համայնքային հավաքները՝ տոներից մինչև ապրիլի 24-ի հիշատակի արարողությունը։</p></div>
 <h2><span class="t-nl">Werkzaamheden</span><span class="t-hy" lang="hy">Գործառույթներ</span></h2><ul class="tijdlijn" style="border-left-color:var(--paars)"><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Vieringen en bijeenkomsten rond de grote feestdagen</span><span class="t-hy" lang="hy">Հանդիսություններ տաղավար տոների շուրջ</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Organisatie van de herdenking op 24 april</span><span class="t-hy" lang="hy">Ապրիլի 24-ի հիշատակի կազմակերպում</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Samenwerking met AJO en het vrouwencomité</span><span class="t-hy" lang="hy">Համագործակցություն AJO-ի և կանանց հանձնախմբի հետ</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Planning in de kerkagenda</span><span class="t-hy" lang="hy">Եկեղեցական օրացույցի պլանավորում</span></p></div></li></ul></div>
-<div><div class="meedoen"><h3><span class="t-nl">Help mee</span><span class="t-hy" lang="hy">Օգնեք մեզ</span></h3><p><span class="t-nl">Wilt u helpen bij een evenement? Laat het ons weten.</span><span class="t-hy" lang="hy">Ցանկանու՞մ եք օգնել միջոցառմանը։ Տեղեկացրեք մեզ։</span></p>
-<form data-form="contact"><input type="hidden" name="onderwerp" value="Commissie evenementen">
-<div class="rij"><label><span class="t-nl">Naam</span><span class="t-hy" lang="hy">Անուն</span><input name="naam" required autocomplete="name"></label><label><span class="t-nl">E-mailadres</span><span class="t-hy" lang="hy">Էլ. փոստ</span><input name="email" type="email" required autocomplete="email"></label></div>
-<label><span class="t-nl">Bericht</span><span class="t-hy" lang="hy">Հաղորդագրություն</span><textarea name="bericht" required style="min-height:90px"></textarea></label>
-<div><button class="knop"><span class="t-nl">Versturen</span><span class="t-hy" lang="hy">Ուղարկել</span></button></div>
-<div class="melding" hidden><span class="t-nl">Bedankt. Uw bericht is ontvangen en we nemen contact met u op.</span><span class="t-hy" lang="hy">Շնորհակալություն։ Ձեր հաղորդագրությունը ստացվել է, մենք կկապվենք Ձեզ հետ։</span></div></form></div></div>
+<div><div class="hoek" style="background:var(--kaart);padding:30px 28px;border-bottom:4px solid var(--paars)"><h3><span class="t-nl">Meer weten of meedoen?</span><span class="t-hy" lang="hy">Ավելին իմանա՞լ կամ միանա՞լ</span></h3><p><span class="t-nl">Neem voor vragen over de evenementen contact op met de kerk. Uw bericht komt dan bij de juiste persoon terecht.</span><span class="t-hy" lang="hy">Միջոցառումների վերաբերյալ հարցերի համար կապվեք եկեղեցու հետ։</span></p><a class="knop" href="#contact"><span class="t-nl">Naar contact</span><span class="t-hy" lang="hy">Կապ</span></a></div></div>
 </div></section>
 </div>
 
@@ -701,12 +745,7 @@ nav.hoofd ul.dropdown a{text-align:left}
 <section class="blok"><div class="wrap twee">
 <div><div class="t-nl"><p>De communicatiecommissie houdt de website, de nieuwsbrief en de sociale media bij en zorgt dat nieuws uit de parochie iedereen bereikt.</p></div><div class="t-hy" lang="hy"><p>Հաղորդակցության հանձնախումբը վարում է կայքը, տեղեկագիրը և սոցիալական ցանցերը։</p></div>
 <h2><span class="t-nl">Werkzaamheden</span><span class="t-hy" lang="hy">Գործառույթներ</span></h2><ul class="tijdlijn" style="border-left-color:var(--paars)"><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Nieuws en agenda op de website plaatsen</span><span class="t-hy" lang="hy">Նորություններ և օրացույց կայքում</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">De maandelijkse nieuwsbrief</span><span class="t-hy" lang="hy">Ամսական տեղեկագիր</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Berichten op Facebook en Instagram</span><span class="t-hy" lang="hy">Գրառումներ Facebook-ում և Instagram-ում</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Foto's en verslagen van vieringen</span><span class="t-hy" lang="hy">Լուսանկարներ և հաշվետվություններ</span></p></div></li></ul></div>
-<div><div class="meedoen"><h3><span class="t-nl">Meedoen?</span><span class="t-hy" lang="hy">Միանա՞լ</span></h3><p><span class="t-nl">Schrijft, fotografeert of ontwerpt u graag? Wij horen graag van u.</span><span class="t-hy" lang="hy">Սիրու՞մ եք գրել, լուսանկարել կամ ձևավորել։ Գրեք մեզ։</span></p>
-<form data-form="contact"><input type="hidden" name="onderwerp" value="Commissie communicatie">
-<div class="rij"><label><span class="t-nl">Naam</span><span class="t-hy" lang="hy">Անուն</span><input name="naam" required autocomplete="name"></label><label><span class="t-nl">E-mailadres</span><span class="t-hy" lang="hy">Էլ. փոստ</span><input name="email" type="email" required autocomplete="email"></label></div>
-<label><span class="t-nl">Bericht</span><span class="t-hy" lang="hy">Հաղորդագրություն</span><textarea name="bericht" required style="min-height:90px"></textarea></label>
-<div><button class="knop"><span class="t-nl">Versturen</span><span class="t-hy" lang="hy">Ուղարկել</span></button></div>
-<div class="melding" hidden><span class="t-nl">Bedankt. Uw bericht is ontvangen en we nemen contact met u op.</span><span class="t-hy" lang="hy">Շնորհակալություն։ Ձեր հաղորդագրությունը ստացվել է, մենք կկապվենք Ձեզ հետ։</span></div></form></div></div>
+<div><div class="hoek" style="background:var(--kaart);padding:30px 28px;border-bottom:4px solid var(--paars)"><h3><span class="t-nl">Meer weten of meedoen?</span><span class="t-hy" lang="hy">Ավելին իմանա՞լ կամ միանա՞լ</span></h3><p><span class="t-nl">Neem voor vragen over de communicatie contact op met de kerk. Uw bericht komt dan bij de juiste persoon terecht.</span><span class="t-hy" lang="hy">Հաղորդակցության վերաբերյալ հարցերի համար կապվեք եկեղեցու հետ։</span></p><a class="knop" href="#contact"><span class="t-nl">Naar contact</span><span class="t-hy" lang="hy">Կապ</span></a></div></div>
 </div></section>
 </div>
 
@@ -716,12 +755,7 @@ nav.hoofd ul.dropdown a{text-align:left}
 <section class="blok"><div class="wrap twee">
 <div><div class="t-nl"><p>Het secretariaat behandelt aanvragen voor ceremonies, beantwoordt vragen en houdt de administratie bij. Voor en tijdens de Heilige Liturgie kunt u bij het secretariaat de naam van uw geliefde laten noteren voor de dodenherdenking.</p></div><div class="t-hy" lang="hy"><p>Քարտուղարությունը մշակում է արարողությունների դիմումները, պատասխանում հարցերին և վարում գործավարությունը։ Սուրբ Պատարագից առաջ և ընթացքում այստեղ կարող եք գրանցել Ձեր հարազատի անունը հոգեհանգստի համար։</p></div>
 <h2><span class="t-nl">Werkzaamheden</span><span class="t-hy" lang="hy">Գործառույթներ</span></h2><ul class="tijdlijn" style="border-left-color:var(--paars)"><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Aanvragen voor doop, huwelijk en uitvaart behandelen</span><span class="t-hy" lang="hy">Մկրտության, պսակի և թաղման դիմումների մշակում</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Namen noteren voor de dodenherdenking</span><span class="t-hy" lang="hy">Անունների գրանցում հոգեհանգստի համար</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Post en e-mail beantwoorden</span><span class="t-hy" lang="hy">Նամակներին պատասխանում</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Aktes en certificaten verzorgen</span><span class="t-hy" lang="hy">Վկայականների պատրաստում</span></p></div></li></ul></div>
-<div><div class="meedoen"><h3><span class="t-nl">Contact met het secretariaat</span><span class="t-hy" lang="hy">Կապ քարտուղարության հետ</span></h3><p><span class="t-nl">Stuur uw vraag, dan neemt het secretariaat contact met u op.</span><span class="t-hy" lang="hy">Ուղարկեք Ձեր հարցը։</span></p>
-<form data-form="contact"><input type="hidden" name="onderwerp" value="Secretariaat">
-<div class="rij"><label><span class="t-nl">Naam</span><span class="t-hy" lang="hy">Անուն</span><input name="naam" required autocomplete="name"></label><label><span class="t-nl">E-mailadres</span><span class="t-hy" lang="hy">Էլ. փոստ</span><input name="email" type="email" required autocomplete="email"></label></div>
-<label><span class="t-nl">Bericht</span><span class="t-hy" lang="hy">Հաղորդագրություն</span><textarea name="bericht" required style="min-height:90px"></textarea></label>
-<div><button class="knop"><span class="t-nl">Versturen</span><span class="t-hy" lang="hy">Ուղարկել</span></button></div>
-<div class="melding" hidden><span class="t-nl">Bedankt. Uw bericht is ontvangen en we nemen contact met u op.</span><span class="t-hy" lang="hy">Շնորհակալություն։ Ձեր հաղորդագրությունը ստացվել է, մենք կկապվենք Ձեզ հետ։</span></div></form></div></div>
+<div><div class="hoek" style="background:var(--kaart);padding:30px 28px;border-bottom:4px solid var(--paars)"><h3><span class="t-nl">Meer weten of meedoen?</span><span class="t-hy" lang="hy">Ավելին իմանա՞լ կամ միանա՞լ</span></h3><p><span class="t-nl">Neem voor vragen over het secretariaat contact op met de kerk. Uw bericht komt dan bij de juiste persoon terecht.</span><span class="t-hy" lang="hy">Քարտուղարության վերաբերյալ հարցերի համար կապվեք եկեղեցու հետ։</span></p><a class="knop" href="#contact"><span class="t-nl">Naar contact</span><span class="t-hy" lang="hy">Կապ</span></a></div></div>
 </div></section>
 </div>
 
@@ -731,18 +765,13 @@ nav.hoofd ul.dropdown a{text-align:left}
 <section class="blok"><div class="wrap twee">
 <div><div class="t-nl"><p><span data-tekst="commissieTekst">Naast de vaste commissies zijn er vrijwilligers die zich inzetten voor het gebouw, de financiën en andere taken. Een volledig overzicht van deze commissies volgt.</span></p></div><div class="t-hy" lang="hy"><p>Բացի հիմնական հանձնախմբերից՝ կամավորները աշխատում են շենքի, ֆինանսների և այլ ոլորտներում։ Ամբողջական ցանկը շուտով։</p></div>
 <h2><span class="t-nl">Voorbeelden</span><span class="t-hy" lang="hy">Օրինակներ</span></h2><ul class="tijdlijn" style="border-left-color:var(--paars)"><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Onderhoud van het kerkgebouw</span><span class="t-hy" lang="hy">Եկեղեցու շենքի պահպանում</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Financiën en fondsenwerving</span><span class="t-hy" lang="hy">Ֆինանսներ և դրամահավաք</span></p></div></li><li style="grid-template-columns:1fr"><div><p><span class="t-nl">Ontvangst en koffie na de liturgie</span><span class="t-hy" lang="hy">Ընդունելություն Պատարագից հետո</span></p></div></li></ul></div>
-<div><div class="meedoen"><h3><span class="t-nl">Zelf iets doen?</span><span class="t-hy" lang="hy">Ցանկանու՞մ եք օգնել</span></h3><p><span class="t-nl">Vertel ons waar u zich voor wilt inzetten.</span><span class="t-hy" lang="hy">Գրեք, թե ինչով կցանկանայիք օգնել։</span></p>
-<form data-form="contact"><input type="hidden" name="onderwerp" value="Overige commissies">
-<div class="rij"><label><span class="t-nl">Naam</span><span class="t-hy" lang="hy">Անուն</span><input name="naam" required autocomplete="name"></label><label><span class="t-nl">E-mailadres</span><span class="t-hy" lang="hy">Էլ. փոստ</span><input name="email" type="email" required autocomplete="email"></label></div>
-<label><span class="t-nl">Bericht</span><span class="t-hy" lang="hy">Հաղորդագրություն</span><textarea name="bericht" required style="min-height:90px"></textarea></label>
-<div><button class="knop"><span class="t-nl">Versturen</span><span class="t-hy" lang="hy">Ուղարկել</span></button></div>
-<div class="melding" hidden><span class="t-nl">Bedankt. Uw bericht is ontvangen en we nemen contact met u op.</span><span class="t-hy" lang="hy">Շնորհակալություն։ Ձեր հաղորդագրությունը ստացվել է, մենք կկապվենք Ձեզ հետ։</span></div></form></div></div>
+<div><div class="hoek" style="background:var(--kaart);padding:30px 28px;border-bottom:4px solid var(--paars)"><h3><span class="t-nl">Meer weten of meedoen?</span><span class="t-hy" lang="hy">Ավելին իմանա՞լ կամ միանա՞լ</span></h3><p><span class="t-nl">Neem voor vragen over de commissies contact op met de kerk. Uw bericht komt dan bij de juiste persoon terecht.</span><span class="t-hy" lang="hy">Հանձնախմբերի վերաբերյալ հարցերի համար կապվեք եկեղեցու հետ։</span></p><a class="knop" href="#contact"><span class="t-nl">Naar contact</span><span class="t-hy" lang="hy">Կապ</span></a></div></div>
 </div></section>
 </div>
 
 <!-- AGENDA -->
 <div class="view" data-view="agenda" hidden>
-<div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home"><span class="t-nl">Home</span><span class="t-hy" lang="hy">Գլխավոր</span></a></div><h1><span class="t-nl">Kerkagenda</span><span class="t-hy" lang="hy">Եկեղեցական օրացույց</span></h1><p><span class="t-nl">Diensten, feestdagen en activiteiten. Zet een afspraak met één klik in de agenda van uw telefoon.</span><span class="t-hy" lang="hy">Արարողություններ, տոներ և միջոցառումներ։ Ավելացրեք Ձեր հեռախոսի օրացույցին մեկ սեղմումով։</span></p></div></div><section class="blok"><div class="wrap"><ul class="agenda" id="agendaLang"></ul></div></section>
+<div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home"><span class="t-nl">Home</span><span class="t-hy" lang="hy">Գլխավոր</span></a></div><h1><span class="t-nl">Kerkagenda</span><span class="t-hy" lang="hy">Եկեղեցական օրացույց</span></h1><p><span class="t-nl">Diensten, feestdagen en activiteiten. Zet een afspraak met één klik in de agenda van uw telefoon.</span><span class="t-hy" lang="hy">Արարողություններ, տոներ և միջոցառումներ։ Ավելացրեք Ձեր հեռախոսի օրացույցին մեկ սեղմումով։</span></p></div></div><section class="blok" style="padding-bottom:0"><div class="wrap"><div class="kaartje" style="border-left:5px solid var(--oranje);max-width:820px"><h2><span class="t-nl">Kerkdiensten</span><span class="t-hy" lang="hy">Եկեղեցական արարողություններ</span></h2><p class="t-nl">U bent van harte welkom om op de zondagen aan te sluiten bij de Heilige Liturgie. Deze vindt plaats vanaf 10:00 uur.</p><p class="t-hy" lang="hy">Սիրով սպասում ենք Ձեզ կիրակի օրերին Սուրբ Պատարագին, որը սկսվում է ժամը 10։00-ին։</p><p class="t-nl" style="margin:0">Het secretariaat is iedere zondag geopend van 10:00 tot 13:00 uur. Hier kunt u terecht met vragen en kunt u de naam van uw geliefde(n) laten opschrijven voor de dodenherdenking.</p><p class="t-hy" lang="hy" style="margin:0">Քարտուղարությունը բաց է ամեն կիրակի ժամը 10։00-ից 13։00-ը։ Այստեղ կարող եք հարցեր տալ և գրանցել Ձեր հարազատի անունը հոգեհանգստի համար։</p></div></div></section><section class="blok"><div class="wrap"><ul class="agenda" id="agendaLang"></ul></div></section>
 </div>
 
 <!-- KHORHURD -->
@@ -764,18 +793,19 @@ nav.hoofd ul.dropdown a{text-align:left}
 <section class="blok"><div class="wrap twee"><div>
 <h2><span class="t-nl">Adres</span><span class="t-hy" lang="hy">Հասցե</span></h2><p>Krom Boomssloot 22<br>1011 GW Amsterdam</p>
 <h2><span class="t-nl">Telefoon</span><span class="t-hy" lang="hy">Հեռախոս</span></h2><p><span class="t-nl">Kerk</span><span class="t-hy" lang="hy">Եկեղեցի</span> <a href="tel:+31206201107">020 620 11 07</a><br><span class="t-nl">Priester Ter Taron Tadevosyan</span><span class="t-hy" lang="hy">Տեր Տարոն Թադևոսյան</span> <a href="tel:+31612796822">06 12 79 68 22</a></p>
-<h2><span class="t-nl">Zusterparochiën</span><span class="t-hy" lang="hy">Քույր ծխեր</span></h2><p><a href="#zusterparochien"><span class="t-nl">Armeense parochies elders in Nederland</span><span class="t-hy" lang="hy">Հայկական ծխեր Նիդեռլանդներում</span></a></p><h2><span class="t-nl">Sociale media</span><span class="t-hy" lang="hy">Սոցիալական ցանցեր</span></h2><p><a href="https://www.facebook.com/Armeens-Apostolische-Kerk-SURP-HOKI-Amsterdam-240372692698949" target="_blank" rel="noopener">Facebook</a></p>
+<h2><span class="t-nl">Sociale media</span><span class="t-hy" lang="hy">Սոցիալական ցանցեր</span></h2><p><a href="https://www.facebook.com/Armeens-Apostolische-Kerk-SURP-HOKI-Amsterdam-240372692698949" target="_blank" rel="noopener">Facebook</a></p>
 </div><div><div class="meedoen"><h3><span class="t-nl">Stuur ons een bericht</span><span class="t-hy" lang="hy">Գրեք մեզ</span></h3><p><span class="t-nl">Wij reageren zo snel mogelijk.</span><span class="t-hy" lang="hy">Կպատասխանենք հնարավորինս շուտ։</span></p>
 <form data-form="contact"><input type="hidden" name="onderwerp" value="Algemeen">
 <div class="rij"><label><span class="t-nl">Naam</span><span class="t-hy" lang="hy">Անուն</span><input name="naam" required autocomplete="name"></label><label><span class="t-nl">E-mailadres</span><span class="t-hy" lang="hy">Էլ. փոստ</span><input name="email" type="email" required autocomplete="email"></label></div>
 <label><span class="t-nl">Bericht</span><span class="t-hy" lang="hy">Հաղորդագրություն</span><textarea name="bericht" required style="min-height:90px"></textarea></label>
 <div><button class="knop"><span class="t-nl">Versturen</span><span class="t-hy" lang="hy">Ուղարկել</span></button></div>
 <div class="melding" hidden><span class="t-nl">Bedankt. Uw bericht is ontvangen en we nemen contact met u op.</span><span class="t-hy" lang="hy">Շնորհակալություն։ Ձեր հաղորդագրությունը ստացվել է, մենք կկապվենք Ձեզ հետ։</span></div></form></div></div></div></section>
-</div>
-
-<!-- ZUSTERPAROCHIEN -->
-<div class="view" data-view="zusterparochien" hidden>
-<div class="paginakop"><div class="wrap"><div class="kruimel"><a href="#home"><span class="t-nl">Home</span><span class="t-hy" lang="hy">Գլխավոր</span></a> / <a href="#contact"><span class="t-nl">Contact</span><span class="t-hy" lang="hy">Կապ</span></a></div><h1><span class="t-nl">Zusterparochiën</span><span class="t-hy" lang="hy">Քույր ծխեր</span></h1><p><span class="t-nl">Armeense parochies elders in Nederland.</span><span class="t-hy" lang="hy">Հայկական ծխեր Նիդեռլանդների այլ քաղաքներում։</span></p></div></div><section class="blok"><div class="wrap"><div class="lijst"><article class="item"><div class="meta">Almelo</div><h3>Surp Krikor Lusavoritch</h3><p>Vriezeveenseweg 174, 7602 PV Almelo</p><a href="tel:0546861026">0546 86 10 26</a></article><article class="item"><div class="meta">Arnhem</div><h3>Opstandingskerk</h3><p>Rosendaalseweg 505, 6824 KL Arnhem</p><a href="tel:0640451044">06 40 45 10 44</a></article><article class="item"><div class="meta">Assen</div><h3>St. Athanasius Koptische kerk</h3><p>Talmastraat 111, 9406 KM Assen</p><a href="tel:0640793669">06 40 79 36 69</a></article><article class="item"><div class="meta">Dordrecht</div><h3>Kerk van de verrezen Christus</h3><p>Nolensweg 8, 3317 LE Dordrecht</p><a href="tel:0643354334">06 43 35 43 34</a></article><article class="item"><div class="meta">Eindhoven</div><h3>Sint-Lambertuskerk</h3><p>Hoogstraat 297, 5654 NA Eindhoven</p><a href="tel:0614557646">06 14 55 76 46</a></article><article class="item"><div class="meta">Heerhugowaard</div><h3>Sint-Dionysiuskerk</h3><p>Middenweg 248, 1710 GH Heerhugowaard</p><a href="tel:0624255169">06 24 25 51 69</a></article><article class="item"><div class="meta">Maastricht</div><h3>Surp Karapet</h3><p>Potterieplein 50, 6216 VB Maastricht</p><a href="tel:0623118396">06 23 11 83 96</a></article></div></div></section>
+<section class="blok vlak" id="zuster"><div class="wrap">
+<h2><span class="t-nl">Zusterparochiën in Nederland</span><span class="t-hy" lang="hy">Քույր ծխեր Նիդեռլանդներում</span></h2>
+<p class="intro"><span class="t-nl">Woont u buiten Amsterdam? Hier vindt u alle zusterparochiën in Nederland.</span><span class="t-hy" lang="hy">Ապրու՞մ եք Ամստերդամից դուրս։ Ահա բոլոր քույր ծխերը Նիդեռլանդներում։</span></p>
+<div class="tabel"><table><thead><tr><th><span class="t-nl">Kerk</span><span class="t-hy" lang="hy">Եկեղեցի</span></th><th><span class="t-nl">Adres</span><span class="t-hy" lang="hy">Հասցե</span></th><th><span class="t-nl">Telefoon</span><span class="t-hy" lang="hy">Հեռախոս</span></th></tr></thead><tbody>
+<tr><td>Surp Krikor Lusavoritch</td><td>Vriezeveenseweg 174, 7602 PV Almelo</td><td><a href="tel:0546861026">0546 86 10 26</a></td></tr><tr><td>Opstandingskerk</td><td>Rosendaalseweg 505, 6824 KL Arnhem</td><td><a href="tel:0640451044">06 40 45 10 44</a></td></tr><tr><td>St. Athanasius Koptische kerk</td><td>Talmastraat 111, 9406 KM Assen</td><td><a href="tel:0640793669">06 40 79 36 69</a></td></tr><tr><td>Kerk van de verrezen Christus</td><td>Nolensweg 8, 3317 LE Dordrecht</td><td><a href="tel:0643354334">06 43 35 43 34</a></td></tr><tr><td>Sint-Lambertuskerk</td><td>Hoogstraat 297, 5654 NA Eindhoven</td><td><a href="tel:0614557646">06 14 55 76 46</a></td></tr><tr><td>Sint-Dionysiuskerk</td><td>Middenweg 248, 1710 GH Heerhugowaard</td><td><a href="tel:0624255169">06 24 25 51 69</a></td></tr><tr><td>Surp Karapet</td><td>Potterieplein 50, 6216 VB Maastricht</td><td><a href="tel:0623118396">06 23 11 83 96</a></td></tr>
+</tbody></table></div></div></section>
 </div>
 
 <!-- FAQ -->
@@ -1405,16 +1435,43 @@ nav.hoofd ul.dropdown a{text-align:left}
       if (k.dataset.tab === "p-regelen") tekenRegelTegels(); });
   });
 
+
+  /* ---------- Instagram AJO ---------- */
+  /* Vul hier de feed-URL in van een koppeldienst zoals Behold.so (bijvoorbeeld https://feeds.behold.so/xxxx).
+     Zolang dit leeg is, toont de pagina een voorbeeldraster met een link naar Instagram. */
+  var INSTA_FEED = "";
+  var instaPosts = null;
+  function tekenInsta(){
+    var box = $("instaFeed"); if (!box) return;
+    box.innerHTML = "";
+    if (instaPosts && instaPosts.length) {
+      instaPosts.slice(0,6).forEach(function(p){
+        var a = document.createElement("a"); a.href = p.permalink || "https://instagram.com/ajo_amsterdam"; a.target = "_blank"; a.rel = "noopener";
+        var img = document.createElement("img"); img.loading = "lazy";
+        img.src = (p.sizes && p.sizes.medium && p.sizes.medium.mediaUrl) || p.thumbnailUrl || p.mediaUrl;
+        img.alt = (p.caption || "Instagram-post AJO Amsterdam").slice(0,120);
+        a.appendChild(img); box.appendChild(a);
+      });
+      return;
+    }
+    for (var i = 0; i < 6; i++) { var d = document.createElement("div"); d.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>'; box.appendChild(d); }
+    var p = document.createElement("p"); p.className = "insta-leeg";
+    p.textContent = T("Zodra het Instagram-account van AJO is gekoppeld, verschijnen hier automatisch de laatste posts.","AJO-ի Instagram հաշիվը միացնելուց հետո այստեղ ավտոմատ կհայտնվեն վերջին գրառումները։");
+    box.appendChild(p);
+  }
+  hertekenaars.push(tekenInsta);
+  if (INSTA_FEED && window.fetch) fetch(INSTA_FEED).then(function(r){ return r.json(); }).then(function(d){ instaPosts = Array.isArray(d) ? d : (d.posts || []); tekenInsta(); }).catch(function(){});
   /* ---------- router ---------- */
   var ALIAS = {doop:"doop", huwelijk:"huwelijk", uitvaart:"uitvaart", ziekenhuisbezoek:"ziekenhuis", huisbezoek:"huis"};
   var OUDER = {etsjmiadzin:"onze-kerk", tijdlijn:"onze-kerk", bijbel:"onze-kerk", kerkgebouw:"onze-kerk", monumenten:"onze-kerk", feestdagen:"onze-kerk", priester:"onze-kerk",
     ajo:"gemeenschap", vrouwencomite:"gemeenschap", zondagsschool:"gemeenschap", bestuur:"gemeenschap", kerkcommissies:"gemeenschap", evenementen:"gemeenschap", communicatie:"gemeenschap", secretariaat:"gemeenschap", "overige-commissies":"gemeenschap",
-    khorhurd:"agenda", nieuws:"agenda", zusterparochien:"contact", faq:"contact", "lid-worden":"contact"};
+    khorhurd:"agenda", nieuws:"agenda", faq:"contact", "lid-worden":"contact"};
   Object.keys(ALIAS).forEach(function(k){ OUDER[k] = "ceremonieen"; });
   var views = Array.prototype.map.call(document.querySelectorAll(".view"), function(v){ return v.dataset.view; });
   var nav = $("hoofdnav"), menuKnop = $("menuKnop");
   function toon(){
     var h = location.hash.replace("#",""); if (h === "inhoud") return;
+    var naar = null; if (h === "zusterparochien") { h = "contact"; naar = "zuster"; }
     var doel = ALIAS[h] ? "ceremonieen" : views.indexOf(h) >= 0 ? h : "home";
     document.querySelectorAll(".view").forEach(function(v){ v.hidden = v.dataset.view !== doel; });
     nav.querySelectorAll(":scope > ul > li > a").forEach(function(a){ var hr = a.getAttribute("href").slice(1);
@@ -1429,7 +1486,7 @@ nav.hoofd ul.dropdown a{text-align:left}
     if (doel === "mijn") tekenPortaal();
     if (doel === "beheer") tekenBeheer();
     if (doel === "tijdlijn") setTimeout(tekenTijd, 0);
-    window.scrollTo(0,0);
+    if (naar) setTimeout(function(){ $(naar).scrollIntoView({block:"start"}); }, 30); else window.scrollTo(0,0);
   }
   window.addEventListener("hashchange", toon);
   menuKnop.addEventListener("click", function(){ var o = nav.classList.toggle("open"); menuKnop.setAttribute("aria-expanded", o); });
